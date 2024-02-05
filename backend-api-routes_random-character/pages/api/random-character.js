@@ -9,6 +9,8 @@ export default function handler(request, response) {
     last_name: chance.last(),
     age: chance.age(),
     birthday: chance.birthday({ string: true, american: false }),
+    twitter: chance.twitter(),
+    geo_hash: chance.geohash(),
   };
   if (request.method === "GET") {
     response.status(200).json(character);
