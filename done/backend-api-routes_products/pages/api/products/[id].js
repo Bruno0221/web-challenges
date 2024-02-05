@@ -1,5 +1,4 @@
 import { getProductById } from "@/services/productServices";
-import { Router } from "next/router";
 
 export default function handler(request, response) {
   if (request.method === "GET") {
