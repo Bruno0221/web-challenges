@@ -12,6 +12,7 @@ export default function Product() {
   const router = useRouter();
   const { id } = router.query;
   const [editing, setEditing] = useState(false);
+  const [deleting, setDeleting] = useState(false);
 
   const { data, isLoading, mutate } = useSWR(`/api/products/${id}`);
 
@@ -70,7 +71,19 @@ export default function Product() {
         <>
           <ProductDetails data={data} />
           <StyledButton onClick={handleToggleEditing}>Edit</StyledButton>
-          <StyledButton onClick={handleDeleteFish}>Delete</StyledButton>
+          {!deleting ? (
+            <StyledButton onClick={() => setDeleting(!deleting)}>
+              Delete
+            </StyledButton>
+          ) : (
+            <>
+              <StyledButton onClick={handleDeleteFish}>☑️</StyledButton>{" "}
+              <StyledButton onClick={() => setDeleting(!deleting)}>
+                ❌
+              </StyledButton>
+            </>
+          )}
+
           {data.reviews.length > 0 && <Comments reviews={data.reviews} />}
           <StyledLink href="/">Back to all</StyledLink>
         </>
