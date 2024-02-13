@@ -66,6 +66,7 @@ export default function Product() {
           onToggleEditing={handleToggleEditing}
           editing={editing}
           formTitle="Enter New Fish Details"
+          data={data}
         />
       ) : (
         <>

@@ -6,21 +6,33 @@ export default function ProductForm({
   onToggleEditing,
   editing,
   formTitle,
+  data,
 }) {
   return (
     <StyledForm onSubmit={onSubmit}>
       <StyledHeading>{formTitle}</StyledHeading>
       <StyledLabel htmlFor="name">
         Name:
-        <input type="text" id="name" name="name" />
+        <input type="text" id="name" name="name" defaultValue={data.name} />
       </StyledLabel>
       <StyledLabel htmlFor="description">
         Description:
-        <input type="text" id="description" name="description" />
+        <input
+          type="text"
+          id="description"
+          name="description"
+          defaultValue={data.description}
+        />
       </StyledLabel>
       <StyledLabel htmlFor="price">
         Price:
-        <input type="number" id="price" name="price" min="0" />
+        <input
+          type="number"
+          id="price"
+          name="price"
+          min="0"
+          defaultValue={data.price}
+        />
       </StyledLabel>
       <StyledLabel htmlFor="currency">
         Currency:
